@@ -1,9 +1,11 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--light-color);
   width: 100%;
   z-index: 2;
   position: fixed;
+  box-shadow: 0 -6px 10px 5px rgba(0,0,0,0.5);
+  
 }
 
 header nav {
@@ -33,16 +35,20 @@ header nav[aria-expanded='true'] {
 @media (width >= 900px) {
   header nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Changed from flex-end to space-between */
+    align-items: center;
     gap: 0 32px;
     max-width: 1264px;
     padding: 0 32px;
+    border-bottom: 2cm;
+    border-color: black;
   }
 
   header nav[aria-expanded='true'] {
     min-height: 0;
     overflow: visible;
   }
+  
 }
 
 header nav p {
@@ -52,7 +58,10 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  text-decoration: none; 
 }
+
+
 
 /* hamburger */
 header nav .nav-hamburger {
@@ -133,15 +142,31 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
     display: none;
     visibility: hidden;
   }
+  header nav a:hover {
+  background-color: var(--link-color);
+  border-radius: 20px;
+  padding: 15%;
+  
+}
 }
 
 /* brand */
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
-  font-size: var(--heading-font-size-s);
-  font-weight: 700;
+  font-size: var(--heading-font-size-m);
+  font-weight:700;
   line-height: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px; /* Added gap between logo and text */
+}
+
+/* Logo styling - add this class to your logo element */
+header .nav-brand .brand-logo {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
 }
 
 header nav .nav-brand img {
@@ -166,11 +191,12 @@ header nav[aria-expanded='true'] .nav-sections {
 header nav .nav-sections ul {
   list-style: none;
   padding-left: 0;
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-m); /* Increased from var(--body-font-size-s) */
 }
 
+
 header nav .nav-sections ul > li {
-  font-weight: 500;
+  font-weight: 400;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -181,13 +207,15 @@ header nav .nav-sections ul > li > ul > li {
   font-weight: 400;
 }
 
+
 @media (width >= 900px) {
   header nav .nav-sections {
     display: block;
     visibility: visible;
     white-space: nowrap;
+    margin-left: auto; /* Added to push nav sections to the right */
   }
-
+  
   header nav[aria-expanded='true'] .nav-sections {
     align-self: unset;
   }
@@ -220,8 +248,9 @@ header nav .nav-sections ul > li > ul > li {
 
   header nav .nav-sections ul {
     display: flex;
-    gap: 24px;
+    gap: 32px; /* Increased gap between nav items */
     margin: 0;
+    float: right;
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {

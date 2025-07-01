@@ -12,16 +12,17 @@
 
 :root {
   /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  --background-color: #FFFFFF;
+  --light-color: #F9FAFF;
+  --dark-color: #1E2A8F;
+  --text-color: #07142B;
+  --link-color: #47ce93;
+  --link-hover-color: #1E2A8F;
+  --section-color: #CBECF5;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: Parastoo, sans-serif, roboto, roboto-fallback;
+  --heading-font-family:  Parastoo, sans-serif, roboto-condensed, roboto-condensed-fallback;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -155,14 +156,14 @@ button {
 
 /* links */
 a:any-link {
-  color: var(--link-color);
+  color: var(--text-color);
   text-decoration: none;
   overflow-wrap: break-word;
 }
 
 a:hover {
   color: var(--link-hover-color);
-  text-decoration: underline;
+  
 }
 
 /* buttons */

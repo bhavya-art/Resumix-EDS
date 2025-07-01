@@ -11,7 +11,9 @@ footer .footer > div {
 
 footer .footer p {
   margin: 0;
+  text-decoration: none;
 }
+
 
 @media (width >= 900px) {
   footer .footer > div {

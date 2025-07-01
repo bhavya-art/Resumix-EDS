@@ -1,10 +1,12 @@
 .cards > ul {
   list-style: none;
-  margin: 0;
+  
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
   grid-gap: 24px;
+  padding: 100px 0 120px;
+  background: white;
 }
 
 .cards > ul > li {
