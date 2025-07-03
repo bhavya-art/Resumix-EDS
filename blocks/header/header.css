@@ -142,10 +142,11 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
     display: none;
     visibility: hidden;
   }
-  header nav a:hover {
+  header nav .nav-sections ul > li a:hover {
   background-color: var(--link-color);
   border-radius: 20px;
   padding: 15%;
+  color:var(--light-color)
   
 }
 }
@@ -196,7 +197,7 @@ header nav .nav-sections ul {
 
 
 header nav .nav-sections ul > li {
-  font-weight: 400;
+  font-weight: 500;
 }
 
 header nav .nav-sections ul > li > ul {

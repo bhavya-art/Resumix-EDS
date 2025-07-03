@@ -11,6 +11,10 @@
   order: 1;
 }
 
+.about > div > h2{
+    color:var(--dark-color);
+}
+
 .about > div > .working-img-col {
   order: 0;
 }

@@ -1,22 +1,37 @@
 .working > div {
   display: flex;
   flex-direction: column;
+  padding-bottom: 5%;
+  
+  
+}
+
+.working{
+     
+     margin:0px 0px 10% 0px;
+     background-color: var(--section-color);
 }
 
 .working img {
   width: 100%;
+  
 }
 
 .working > div > div {
   order: 1;
+  padding: 2%;
+ 
 }
+
 
 .working > div > .working-img-col {
   order: 0;
+  
 }
 
 .working > div > .working-img-col img {
   display: block;
+  border-radius: 10%;
 }
 
 
@@ -24,7 +39,7 @@
   .working > div {
     align-items: center;
     flex-direction: unset;
-    gap: 24px;
+    gap: 50px;
   }
 
   .working > div > div {

@@ -1,27 +1,24 @@
 .columns > div {
   display: flex;
   flex-direction: column;
-  background-color: var(--section-color);
-  border-radius: 5px;
-  
 }
 
-.columns img {
-  width: 100%;
+.columns{
+  margin-bottom: 10% ;
 }
 
 .columns > div > div {
   order: 1;
+  background-color: var(--section-color);
+  color:var(--dark-color);
+  padding: 2%;
+  border-radius: 40px;
+  justify-content: center;
 }
 
-.columns > div > .columns-img-col {
-  order: 0;
+.columns > div > div > h4{
+  text-align: center;
 }
-
-.columns > div > .columns-img-col img {
-  display: block;
-}
-
 
 @media (width >= 900px) {
   .columns > div {
@@ -34,8 +31,8 @@
   .columns > div > div {
     flex: 1;
     order: unset;
-    border-radius: 20px;
+    
     background-color: var(--section-color);
-    justify-content: space-around;
+    
 }
 }
