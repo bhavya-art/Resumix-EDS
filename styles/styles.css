@@ -23,24 +23,24 @@
   
 
   /* fonts */
-  --body-font-family: /*"Kepler Std"*/, sans-serif, roboto, roboto-fallback;
-  --heading-font-family:  sans-serif/*, roboto-condensed, roboto-condensed-fallback;*/
+  --body-font-family: "sf font";
+  --heading-font-family: "sf font";
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 25px;
+  --body-font-size-s: 22px;
+  --body-font-size-xs: 20px;
 
   /* heading sizes */
   --heading-font-size-xxl: 55px;
   --heading-font-size-xl: 44px;
   --heading-font-size-l: 34px;
   --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
+  --heading-font-size-s: 23px;
   --heading-font-size-xs: 22px;
 
   /* nav height */
-  --nav-height: 64px;
+  --nav-height: 68px;
 }
 
 /* fallback fonts */
@@ -64,12 +64,12 @@
     --body-font-size-xs: 14px;
 
     /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    --heading-font-size-xxl: 55px;
+    --heading-font-size-xl: 45px;
+    --heading-font-size-l: 25px;
+    --heading-font-size-m: 19px;
+    --heading-font-size-s: 17px;
+    --heading-font-size-xs: 15px;
   }
 }
 
@@ -81,7 +81,7 @@ body {
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
   line-height: 1.6;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
 }
 
 body.appear {
@@ -108,8 +108,8 @@ h3,
 h4,
 h5,
 h6 {
-  /*margin-top: 0.8em;
-  margin-bottom: 0.25em;*/
+  margin-top: 0.8em;
+  margin-bottom: 0.25em;
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
@@ -169,38 +169,38 @@ a:hover {
   color: var(--link-hover-color);
   
 }
-
+ .container{
+  margin:0 20px;
+ }
 /* buttons */
 a.button:any-link,
 button {
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
-  margin: 12px 0;
+  /*margin: 12px 0;*/
   border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  
+  /*padding: 0.5em 1.2em;*/
   font-family: var(--body-font-family);
   font-style: normal;
   font-weight: 500;
   line-height: 1.25;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
   cursor: pointer;
   overflow: hidden;
- /* text-overflow: ellipsis;*/
+ text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-a.button:hover,
+/*a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
-}
+}*/
 
 button:disabled,
 button:disabled:hover {
@@ -239,7 +239,7 @@ main > .section {
 
 main > .section > div {
   max-width: 1200px;
-  margin: auto;
+  /*margin: auto;*/
   padding: 0 24px;
 }
 
@@ -250,7 +250,7 @@ main > .section:first-of-type {
 h2{
  
   color: var(--dark-color);
-  letter-spacing: 1px;
+  /*letter-spacing: 1px;*/
   
 }
 
@@ -265,5 +265,5 @@ main .section.light,
 main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
-  padding: 40px 0;
+  padding: 25px 0;
 }

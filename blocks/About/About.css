@@ -1,6 +1,10 @@
 .about > div {
   display: flex;
   flex-direction: column;
+  
+}
+.section> div{
+  margin: auto;
 }
 
 .about img {

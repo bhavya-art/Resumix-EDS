@@ -5,4 +5,5 @@ export default function decorate(block){
     if (id) {
         block.setAttribute('id', id);
     }
+    block.classList.add('container');
 }

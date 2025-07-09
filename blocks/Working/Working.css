@@ -10,17 +10,25 @@
      
      margin:0px 0px 10% 0px;
      background-color: var(--section-color);
+     border-radius: 5%;
 }
 
 .working img {
   width: 100%;
-  
+  border-radius: 10%;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+}
+
+.working h2{
+    padding-top: 4%;
+    text-align: center;
+    
 }
 
 .working > div > div {
   order: 1;
   padding: 2%;
- 
+  
 }
 
 
@@ -31,7 +39,8 @@
 
 .working > div > .working-img-col img {
   display: block;
-  border-radius: 10%;
+  border-radius: 50%;
+  
 }
 
 
@@ -39,7 +48,7 @@
   .working > div {
     align-items: center;
     flex-direction: unset;
-    gap: 50px;
+  
   }
 
   .working > div > div {

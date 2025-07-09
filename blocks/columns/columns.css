@@ -14,7 +14,10 @@
   padding: 2%;
   border-radius: 40px;
   justify-content: center;
+  padding-bottom: 3.5%;
 }
+
+
 
 .columns > div > div > h4{
   text-align: center;
