@@ -3,7 +3,10 @@ footer {
   font-size: var(--body-font-size-s);
 }
 
-
+.copyright p{
+  padding-top: 15px;
+  text-align: center;
+}
 
 footer .footer p {
   margin: 0;
@@ -16,6 +19,8 @@ footer .footer > div> div{
   justify-content: space-between;
   align-items: center;
   margin: auto;
+  flex-direction: row;
+  gap: 16px;
   
  
 }
@@ -41,31 +46,19 @@ footer .footer > div> div{
   display: flex;
   flex-direction: column;
   align-items: center; 
-  gap: 0px;
+  gap: 0;
   font-size: small;
 }
 
-.navlinks a.button:any-link {
-  background-color: none;
-}
-.copyright p{
 
-  padding-top: 15px;
-  text-align: center;
-}
+
+
 .copyright{
-  
   padding: 16px 0;
 }
 
 
 
-footer .footer > div > div {
-  display: flex;
-  flex-direction: row;
-  gap: 16px;
-   
-}
 @media (width >= 900px) {
   footer .footer > div {
     padding: 40px 32px 24px;

@@ -101,8 +101,8 @@ export default async function decorate(block) {
   });
 }
 
-/*const nameInput=document.querySelector("#form-full-name");
+/* const nameInput=document.querySelector("#form-full-name");
 const namePreview=document.querySelector('.preview');
 nameInput.addEventListener("input", () => {
   namePreview.textContent = nameInput.value;
-});*/
+}); */
