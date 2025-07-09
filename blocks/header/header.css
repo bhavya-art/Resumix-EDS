@@ -4,7 +4,7 @@ header .nav-wrapper {
   width: 100%;
   z-index: 2;
   position: fixed;
-  box-shadow: 0 -6px 10px 5px rgba(0,0,0,0.5);
+  box-shadow: 0 -6px 10px 5px rgb(0 0 0 / 50%);
   
 }
 
@@ -39,7 +39,6 @@ header nav[aria-expanded='true'] {
     align-items: center;
     gap: 0 32px;
     max-width: 1264px;
-  
     border-bottom: 2cm;
     border-color: black;
   }
@@ -142,10 +141,10 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
     display: none;
     visibility: hidden;
   }
+
   header nav .nav-sections ul > li:hover {
   background-color: var(--link-color);
   border-radius: 30px;
-
   color:var(--light-color)
   
 }
@@ -271,7 +270,6 @@ header nav .nav-sections ul > li > ul > li {
     left: -24px;
     width: 200px;
     top: 150%;
-    
     background-color: var(--light-color);
     white-space: initial;
   }
