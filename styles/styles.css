@@ -12,7 +12,7 @@
 
 :root {
   /* colors */
-  --background-color: #FFFFFF;
+  --background-color: #FFF;
   --light-color: #F9FAFF;
   --dark-color: #1E2A8F;
   --text-color: #07142B;
@@ -66,7 +66,7 @@
     /* heading sizes */
     --heading-font-size-xxl: 55px;
     --heading-font-size-xl: 45px;
-    --heading-font-size-l: 25px;
+    --heading-font-size-l: 28px;
     --heading-font-size-m: 19px;
     --heading-font-size-s: 17px;
     --heading-font-size-xs: 15px;
@@ -169,7 +169,8 @@ a:hover {
   color: var(--link-hover-color);
   
 }
- .container{
+ 
+.container{
   margin:0 20px;
  }
 /* buttons */

@@ -8,9 +8,10 @@
 
 .working{
      
-     margin:0px 0px 10% 0px;
+     margin:10px 10px 10% 0px;
      background-color: var(--section-color);
      border-radius: 5%;
+     padding: 3.5%;
 }
 
 .working img {
