@@ -7,8 +7,7 @@
 }
 
 .working{
-     
-     margin:10px 10px 10% 0px;
+     margin:10px 10px 10% 0;
      background-color: var(--section-color);
      border-radius: 5%;
      padding: 3.5%;
@@ -17,7 +16,7 @@
 .working img {
   width: 100%;
   border-radius: 10%;
-  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  box-shadow: rgb(17 17 26 / 10%) 0 4px 16px, rgb(17 17 26 / 5%) 0 8px 32px;
 }
 
 .working h2{
