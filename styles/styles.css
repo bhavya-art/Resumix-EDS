@@ -200,6 +200,7 @@ button {
  text-overflow: ellipsis;
   white-space: nowrap;
 }
+
 .section> div{
   margin: auto;
 }
