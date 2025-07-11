@@ -65,7 +65,7 @@
 
     /* heading sizes */
     --heading-font-size-xxl: 55px;
-    --heading-font-size-xl: 45px;
+    --heading-font-size-xl: 43px;
     --heading-font-size-l: 28px;
     --heading-font-size-m: 19px;
     --heading-font-size-s: 17px;
@@ -199,6 +199,9 @@ button {
   overflow: hidden;
  text-overflow: ellipsis;
   white-space: nowrap;
+}
+.section> div{
+  margin: auto;
 }
 
 /* a.button:hover,

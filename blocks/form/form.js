@@ -53,21 +53,26 @@ async function handleSubmit(form) {
 
     // create payload
     const payload = generatePayload(form);
-    const response = await fetch(form.dataset.action, {
-      method: 'POST',
-      body: JSON.stringify({ data: payload }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    });
-    if (response.ok) {
-      if (form.dataset.confirmation) {
-        window.location.href = form.dataset.confirmation;
-      }
-    } else {
-      const error = await response.text();
-      throw new Error(error);
-    }
+    // console.log(payload);
+    localStorage.setItem('formData', JSON.stringify(payload));
+    // if (form.dataset.confirmation) {
+    window.location.href = '/nextpage';
+    // }
+    // const response = await fetch(form.dataset.action, {
+    //   method: 'POST',
+    //   body: JSON.stringify({ data: payload }),
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    // });
+    // if (response.ok) {
+    //   if (form.dataset.confirmation) {
+    //     window.location.href = form.dataset.confirmation;
+    //   }
+    // } else {
+    //   const error = await response.text();
+    //   throw new Error(error);
+    // }
   } catch (e) {
     // eslint-disable-next-line no-console
     console.error(e);
@@ -100,9 +105,3 @@ export default async function decorate(block) {
     }
   });
 }
-
-/* const nameInput=document.querySelector("#form-full-name");
-const namePreview=document.querySelector('.preview');
-nameInput.addEventListener("input", () => {
-  namePreview.textContent = nameInput.value;
-}); */

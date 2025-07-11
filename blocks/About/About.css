@@ -4,12 +4,11 @@
   
 }
 
-.section> div{
-  margin: auto;
-}
+
 
 .about img {
   width: 100%;
+  opacity: 0.9;
 }
 
 .about > div > div {
