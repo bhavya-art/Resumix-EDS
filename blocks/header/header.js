@@ -164,3 +164,46 @@ export default async function decorate(block) {
   navWrapper.append(nav);
   block.append(navWrapper);
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('.header-wrapper a');
+
+  function smoothScrollToTop(duration) {
+    const startY = window.scrollY;
+    const startTime = performance.now();
+
+    // Early exit if already at top
+    if (startY === 0) return;
+
+    function scrollStep(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      // Simple easeOut function
+      const ease = 1 - (1 - progress) ** 2;
+
+      // Calculate position: start at startY, end at 0
+      const currentY = startY - (startY * ease);
+
+      window.scrollTo(0, Math.max(0, currentY));
+
+      if (progress < 1) {
+        requestAnimationFrame(scrollStep);
+      } else {
+        // Ensure we end exactly at top
+        window.scrollTo(0, 0);
+      }
+    }
+
+    requestAnimationFrame(scrollStep);
+  }
+
+  links.forEach((link) => {
+    if (link.textContent.trim() === '📝Resumix') {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        smoothScrollToTop(5000); // Slower for viewing content: 3 seconds
+      });
+    }
+  });
+});

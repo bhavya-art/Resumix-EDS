@@ -130,6 +130,16 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   border-radius: 2px;
 }
 
+@media (width <= 900px){
+ header nav .nav-sections ul > li > a:hover {
+  background-color: var(--dark-color);
+  border-radius: 30px;
+  padding : 8px 16px;
+  color: white;
+  
+}
+}
+
 header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   top: unset;
   bottom: 3px;
@@ -143,12 +153,17 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 
   header nav .nav-sections ul > li:hover {
-  background-color: var(--link-color);
+  background-color: var(--dark-color);
   border-radius: 30px;
   color:var(--light-color)
   
 }
+  
 }
+
+
+
+
 
 /* brand */
 header .nav-brand {
@@ -159,6 +174,7 @@ header .nav-brand {
   display: flex;
   align-items: center;
   gap: 12px; /* Added gap between logo and text */
+  padding-right: 1%;
 }
 
 /* Logo styling - add this class to your logo element */
@@ -179,6 +195,13 @@ header nav .nav-sections {
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
+  
+}
+
+@media (width <= 900px){
+  header nav .nav-sections {
+  padding-top: 10%;
+}
 }
 
 header nav[aria-expanded='true'] .nav-sections {
@@ -196,7 +219,8 @@ header nav .nav-sections ul {
 
 header nav .nav-sections ul > li {
   font-weight: 500;
-  padding:8px;
+  padding: 2%;
+  text-align: center;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -294,3 +318,5 @@ header nav .nav-sections ul > li > ul > li {
 header nav .nav-tools {
   grid-area: tools;
 }
+
+

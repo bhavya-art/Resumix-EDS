@@ -7,6 +7,7 @@
   position: relative;
   padding: 50px 24px;
   min-height: 300px;
+  overflow: hidden; /* Prevent content from overflowing */
 }
 
 .hero h1 {
@@ -16,13 +17,17 @@
   padding-top: 6%;
   color: var(--dark-color);
   padding-bottom: 2%;
+  padding-left: 0%;
 }
-
 
 .hero picture {
   position: absolute;
   z-index: -1;
-  inset: 0;
+  top: 0;
+  right: 0; /* Position on the right side */
+  width: 50%; /* Take up half the container width */
+
+  /* height: 100%; */
   object-fit: cover;
   box-sizing: border-box;
   opacity: 0.9;
@@ -36,17 +41,20 @@
 
 @media (width >= 900px) {
   .hero {
-    padding: 60px 25px;
+    padding: 60px 25px 0;
     min-height: 580px;
   }
 
-  .hero p{
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 9%;
+  .hero p {
+    margin-left: auto;
+    margin-right: auto;
+
+    /* padding-left: 9%; */
+  }
   
-  
-}
+  /* .hero picture {
+    width: 60%; /* Slightly larger on desktop 
+  } */
 }
 
 .hero .button {
@@ -54,7 +62,7 @@
   color: var(--light-color);
   padding: 0.6em 1.5em;
   border: none;
-  border-radius: 999px; 
+  border-radius: 999px;
   margin: 12px 0;
   font-weight: 600;
   font-size: 1rem;
@@ -62,15 +70,14 @@
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-
 .hero .button:hover,
 .hero .button:focus-visible {
-  background-color: var(--link-hover-color, #0057cc); 
+  background-color: var(--link-hover-color, #0057cc);
   transform: scale(1.05);
   outline: none;
 }
 
-/* Modal overlay styling */
+/* === Modal Overlay === */
 .resume-modal-overlay {
   position: fixed;
   top: 0;
@@ -85,27 +92,76 @@
   z-index: 9999;
 }
 
-/* Modal content styling */
+/* === Modal Content === */
 .resume-modal-content {
- background:#604652;
-  backdrop-filter: blur(10px);
-  padding: 30px;
-  max-width: 600px;
-  width:37%;
-  border-radius: 10px;
+  background: #f0f8ff;
+  padding: 5%;
+  max-width: 700px;
+  width: 90%;
+  border-radius: 16px;
   position: relative;
-  max-height: 60vh;
-  overflow: hidden auto;
+  max-height: 80vh;
+  overflow: auto;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 20%);
 }
 
-/* Close button styling */
+/* === Close Button === */
 .resume-modal-content .modal-close {
   position: absolute;
   top: 10px;
   right: 15px;
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
-  color: #e0d8d3;
+  color: #333;
+}
+
+.hero h1,
+.hero p {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* padding-left: 9%; */
+
+  /* padding-right: 50%; Add right padding to avoid text overlapping image */
+  text-align: left;
+  position: relative;
+  z-index: 1; /* Ensure text stays above image */
+}
+
+/* For smaller screens: center-align text */
+@media (width <= 899px) {
+  .hero h1,
+  .hero p {
+    text-align: center;
+    padding-left: 5%;
+    padding-right: 5%;
+     z-index: 1;
+  }
+  
+  .hero picture {
+    position: static;
+    width: 100%;
+    height: auto;
+    opacity: 1;
+    z-index: 0;
+  }
+  
+  .hero img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px;
+    position: relative;
+  }
+  
+  
 }

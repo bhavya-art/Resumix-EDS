@@ -1,0 +1,182 @@
+
+
+/* Embed Container Styling */
+.section.embed-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  background-color: var(--background-color);
+}
+
+.section.embed-container p {
+  padding-top: 5%;
+  font-size: var(--body-font-size-s);
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+@media (width >= 900px) {
+  .section.embed-container p {
+    padding-left: 16.5%;
+  }
+}
+
+.embed {
+  width: unset;
+  text-align: center;
+  max-width: 800px;
+  margin: 32px auto;
+  background-color: var(--light-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+  transition: all 0.3s ease;
+}
+
+.embed:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgb(0 0 0 / 15%);
+}
+
+.embed > div {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.embed.embed-twitter .twitter-tweet-rendered {
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.embed .embed-placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--section-color), var(--light-color));
+  
+}
+
+.embed .embed-placeholder > * {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  inset: 0;
+}
+
+.embed .embed-placeholder picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.embed .embed-placeholder:hover picture img {
+  transform: scale(1.05);
+}
+
+.embed .embed-placeholder-play button {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  transform: scale(3);
+  width: 22px;
+  height: 22px;
+  border: 2px solid var(--background-color);
+  border-radius: 20px;
+  padding: 0;
+  background-color: var(--dark-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgb(0 0 0 / 30%);
+}
+
+.embed .embed-placeholder-play button:hover {
+  background-color: var(--link-color);
+  border-color: var(--link-color);
+  transform: scale(3.2);
+}
+
+.embed .embed-placeholder-play button::before {
+  content: "";
+  display: block;
+  box-sizing: border-box;
+  position: absolute;
+  width: 0;
+  height: 10px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid var(--background-color);
+  top: 4px;
+  left: 7px;
+  transition: border-left-color 0.3s ease;
+}
+
+.embed .embed-placeholder-play button:hover::before {
+  border-left-color: var(--background-color);
+}
+
+/* Loading animation for embed placeholder */
+.embed .embed-placeholder::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 40%), transparent);
+  animation: loading 2s;
+  z-index: 1;
+}
+
+@keyframes loading {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive embed styling */
+@media (width <= 768px) {
+  .embed {
+    margin: 20px auto;
+    padding: 1rem;
+  }
+  
+  .embed .embed-placeholder-play button {
+    transform: scale(2.5);
+  }
+  
+  .embed .embed-placeholder-play button:hover {
+    transform: scale(2.7);
+  }
+}
+
+@media (width <= 480px) {
+  .section.embed-container p {
+    padding-top: 3%;
+    font-size: var(--body-font-size-xs);
+  }
+  
+  .embed {
+    margin: 16px auto;
+    padding: 0.75rem;
+  }
+  
+  .embed .embed-placeholder-play button {
+    transform: scale(2);
+  }
+  
+  .embed .embed-placeholder-play button:hover {
+    transform: scale(2.2);
+  }
+}

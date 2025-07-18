@@ -7,12 +7,40 @@ export default function decorate(block) {
     const li = document.createElement('li');
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
+      if (div.children.length === 1 && div.querySelector('picture')) {
+        div.className = 'cards-card-image';
+      } else {
+        div.className = 'cards-card-body';
+      }
     });
     ul.append(li);
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+
+  // Optimize pictures
+  ul.querySelectorAll('picture > img').forEach((img) => {
+    img.closest('picture').replaceWith(
+      createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }]),
+    );
+  });
+
+  // Clear original block content and append new list
   block.textContent = '';
   block.append(ul);
+
+  // ✅ Add click redirects only to first 3 cards
+  const redirectUrls = [
+    'https://main--resumix-eds--bhavya-art.aem.page/builderpage',
+    'https://main--resumix-eds--bhavya-art.aem.page/builderpage',
+    'https://main--resumix-eds--bhavya-art.aem.page/builderpage',
+    'https://main--resumix-eds--bhavya-art.aem.page/builderpage',
+  ];
+
+  ul.querySelectorAll('li').forEach((li, index) => {
+    if (index < redirectUrls.length) {
+      li.style.cursor = 'pointer';
+      li.addEventListener('click', () => {
+        window.location.href = redirectUrls[index];
+      });
+    }
+  });
 }

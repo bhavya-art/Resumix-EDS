@@ -8,10 +8,10 @@ footer {
   text-align: center;
 }
 
-footer .footer p {
-  margin: 0;
-  text-decoration: none;
-  
+footer .footer > div {
+  padding: 24px 16px;
+  max-width: 1248px;
+  margin: auto;
 }
 
 footer .footer > div> div{
@@ -24,6 +24,20 @@ footer .footer > div> div{
   
  
 }
+
+body > footer > div > div > div.section.copyright-container > div > div > div:nth-child(1){
+  opacity: 0.8;
+}
+
+footer .footer p {
+  margin: 0;
+  text-decoration: none;
+  
+}
+
+
+
+
 
 
 #resumix{
@@ -46,8 +60,8 @@ footer .footer > div> div{
   display: flex;
   flex-direction: column;
   align-items: center; 
-  gap: 0;
-  font-size: small;
+  gap: 0.25rem;
+  font-size: medium;
 }
 
 

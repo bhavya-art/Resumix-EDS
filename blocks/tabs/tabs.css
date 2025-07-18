@@ -1,0 +1,104 @@
+/* Container for Title with Icon Centered in a Row */
+.tabs-container > .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+/* Icon Styling */
+.tabs-container picture,
+.tabs-container img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+}
+
+/* Main Title */
+.tabs-container h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin: 0;
+  text-align: center;
+  color: #222;
+}
+
+/* Wrapper for Tabs */
+.tabs-wrapper {
+  width: 55%;
+  max-width: 700px;
+  margin: 2rem auto 0;
+  padding: 1rem;
+}
+
+/* Question Block (Clickable) */
+.tabs-wrapper h4 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+  padding: 1rem 2.5rem 1rem 0;
+  margin: 0;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+/* Plus Icon */
+.tabs-wrapper h4::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 1rem;
+  font-size: 1.4rem;
+  color: #666;
+  transition: transform 0.3s ease;
+}
+
+/* Answer Text */
+.tabs-wrapper h5 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  padding-left: 0.5rem;
+  transition: all 0.4s ease;
+  color: #444;
+}
+
+/* Expanded State for Answer */
+.tabs-wrapper h4.active::after {
+  transform: rotate(45deg); /* makes + into an × */
+}
+
+.tabs-wrapper h4.active + h5 {
+  max-height: 500px;
+  opacity: 1;
+  margin: 0.8rem 0 1.5rem;
+}
+
+/* Optional Hover Effects */
+.tabs-wrapper h4:hover {
+  color: #0073e6;
+}
+
+/* Responsive (Mobile-Friendly) */
+@media (width <= 600px) {
+  .tabs-wrapper {
+    padding: 0 1rem;
+  }
+
+  .tabs-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .tabs-wrapper h4 {
+    font-size: 1rem;
+    padding-right: 2rem;
+  }
+}

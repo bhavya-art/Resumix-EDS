@@ -197,13 +197,15 @@ const createToggle = (fd) => {
   return { field, fieldWrapper };
 };
 
-const createCheckbox = (fd) => {
-  const { field, fieldWrapper } = createInput(fd);
-  if (!field.value) field.value = 'checked';
-  fieldWrapper.classList.add('selection-wrapper');
+// const createCheckbox = (fd, form) => {
+//   const { field, fieldWrapper } = createInput(fd);
+//   if (!field.value) field.value = 'checked';
+//   fieldWrapper.classList.add('selection-wrapper');
 
-  return { field, fieldWrapper };
-};
+//   setTimeout(() => handleCheckboxCompletionModal(form), 0);
+
+//   return { field, fieldWrapper };
+// };
 
 const createRadio = (fd) => {
   const { field, fieldWrapper } = createInput(fd);
@@ -222,7 +224,7 @@ const FIELD_CREATOR_FUNCTIONS = {
   submit: createSubmit,
   confirmation: createConfirmation,
   fieldset: createFieldset,
-  checkbox: createCheckbox,
+  // checkbox: createCheckbox,
   radio: createRadio,
 };
 
@@ -234,3 +236,86 @@ export default async function createField(fd, form) {
 
   return fieldElements.fieldWrapper;
 }
+
+// function handleCheckboxCompletionMessage(form) {
+//   const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+//   if (!checkboxes.length) return;
+
+//   let message = form.querySelector('.checkbox-complete-message');
+//   if (!message) {
+//     message = document.createElement('p');
+//     message.className = 'checkbox-complete-message';
+//     message.style.color = 'green';
+//     message.style.fontWeight = 'bold';
+//     message.style.marginTop = '1em';
+//     message.style.display = 'none';
+//     message.textContent = '✅ You are now ready to submit your resume!';
+//     form.append(message);
+//   }
+
+//   function updateMessage() {
+//     const allChecked = [...checkboxes].every((cb) => cb.checked);
+//     message.style.display = allChecked ? 'block' : 'none';
+//   }
+
+//   checkboxes.forEach((cb) => cb.addEventListener('change', updateMessage));
+// }
+
+// function handleCheckboxCompletionModal(form) {
+//   const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+//   if (!checkboxes.length) return;
+
+//   // Create modal only once
+//   let modal = document.querySelector('#checkbox-modal');
+//   if (!modal) {
+//     modal = document.createElement('div');
+//     modal.id = 'checkbox-modal';
+//     modal.innerHTML = `
+//       <div class="modal-backdrop"></div>
+//       <div class="modal-content">
+//         <p>✅ You are now ready to submit your resume!</p>
+//         <button id="close-modal">Close</button>
+//       </div>
+//     `;
+//     document.body.appendChild(modal);
+
+//     // Close functionality
+//     modal.querySelector('#close-modal').addEventListener('click', () => {
+//       modal.style.display = 'none';
+//     });
+//     modal.querySelector('.modal-backdrop').addEventListener('click', () => {
+//       modal.style.display = 'none';
+//     });
+//   }
+
+//   function updateModal() {
+//     const allChecked = [...checkboxes].every((cb) => cb.checked);
+//     if (allChecked) {
+//       modal.style.display = 'flex';
+//     }
+//   }
+
+//   checkboxes.forEach((cb) => cb.addEventListener('change', updateModal));
+// }
+// function setupCheckboxModal(form) {
+//   const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+//   const modal = document.getElementById('checkbox-modal');
+//   const closeBtn = modal.querySelector('#close-modal');
+//   const overlay = modal.querySelector('.modal-overlay');
+
+//   function checkAllChecked() {
+//     const allChecked = [...checkboxes].every((cb) => cb.checked);
+//     if (allChecked) {
+//       modal.classList.add('show');
+//     }
+//   }
+
+//   function closeModalAndReset() {
+//     modal.classList.remove('show');
+//     checkboxes.forEach((cb) => (cb.checked = false));
+//   }
+
+//   checkboxes.forEach((cb) => cb.addEventListener('change', checkAllChecked));
+//   closeBtn.addEventListener('click', closeModalAndReset);
+//   overlay.addEventListener('click', closeModalAndReset);
+// }

@@ -25,16 +25,20 @@ box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
 .cards > ul > li:hover {
   transform: translateY(-10px);
   transition: transform 0.1s ease-in-out;
+  background-color: var(--section-color);
 }
 
 .cards{
   padding-top: 4%;
   padding-bottom: 7%;
   
+  
+  
 }
 
 .cards .cards-card-body {
   margin: 16px;
+  
 }
 
 .cards .cards-card-image {
