@@ -226,3 +226,15 @@
     font-size: var(--heading-font-size-m);
   }
 }
+
+
+button.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+input.error, textarea.error {
+  border-color: red;
+  outline: none;
+}

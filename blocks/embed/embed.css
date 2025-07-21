@@ -8,6 +8,12 @@
   background-color: var(--background-color);
 }
 
+.section.embed-container h3{
+  text-align: center;
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
 .section.embed-container p {
   padding-top: 5%;
   font-size: var(--body-font-size-s);
@@ -30,7 +36,7 @@
   background-color: var(--light-color);
   border-radius: 12px;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgb(0 0 0 / 10%);
+ box-shadow: rgb(14 30 37 / 12%) 0 2px 4px 0, rgb(14 30 37 / 32%) 0 2px 16px 0;
   transition: all 0.3s ease;
 }
 

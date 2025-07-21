@@ -1,6 +1,6 @@
 footer {
   background-color: var(--section-color);
-  font-size: var(--body-font-size-s);
+  font-size: var(--body-font-size-xxs);
 }
 
 .copyright p{
@@ -80,4 +80,32 @@ footer .footer p {
 }
 
 
+@media screen and (width <= 768px) {
+  footer .footer > div > div {
+    flex-direction: column;
+    gap: 16px;
+  }
 
+  /* Top row: logo left, socials right */
+  footer .footer > div > div > div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #resumix {
+    order: 1;
+  }
+
+  .socials {
+    order: 2;
+  }
+
+  /* Nav links row */
+  .navlinks {
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 8px;
+  }
+}

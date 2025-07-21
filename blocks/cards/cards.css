@@ -50,3 +50,30 @@ box-shadow: rgb(0 0 0 / 35%) 0 5px 15px;
   aspect-ratio: 4 / 3;
   object-fit: cover;
 }
+
+@media screen and (width <= 768px) {
+  .cards {
+    padding: 2rem 1rem;
+  }
+
+  .cards > ul {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    grid-gap: 16px;
+  }
+
+  .cards .h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .cards > ul > li {
+    margin: 0 auto; /* Center cards */
+    max-width: 320px;
+  }
+}
+
+@media screen and (width <= 768px) {
+  body > main > div.section.navigation-container.cards-container > div.default-content-wrapper > p {
+    padding: 0 16px;
+  }
+}

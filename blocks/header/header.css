@@ -130,13 +130,20 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   border-radius: 2px;
 }
 
+header nav .nav-sections ul > li > a {
+  transition: background-color 0.3s ease;
+}
+
+
+
+
+
 @media (width <= 900px){
- header nav .nav-sections ul > li > a:hover {
+header nav .nav-sections ul > li > a:hover {
   background-color: var(--dark-color);
   border-radius: 30px;
-  padding : 8px 16px;
+  padding: 8px 16px;
   color: white;
-  
 }
 }
 
@@ -155,8 +162,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   header nav .nav-sections ul > li:hover {
   background-color: var(--dark-color);
   border-radius: 30px;
-  color:var(--light-color)
-  
+  color:var(--light-color);
 }
   
 }
@@ -174,7 +180,7 @@ header .nav-brand {
   display: flex;
   align-items: center;
   gap: 12px; /* Added gap between logo and text */
-  padding-right: 1%;
+  padding-right: 10%;
 }
 
 /* Logo styling - add this class to your logo element */
@@ -275,6 +281,7 @@ header nav .nav-sections ul > li > ul > li {
     gap: 32px; 
     margin: 0;
     float: right;
+    
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li {

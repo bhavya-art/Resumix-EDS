@@ -1,109 +1,88 @@
-// import createField from './form-fields.js';
+import createChecklistField, { createProgressTracker, updateProgress } from './checklist-fields.js';
 
-// async function createForm(formHref, submitHref) {
-//   const { pathname } = new URL(formHref);
-//   const resp = await fetch(pathname);
-//   const json = await resp.json();
+// function loadChecklistState(checklist) {
+//   const savedState = localStorage.getItem('checklistState');
+//   if (!savedState) return;
 
-//   const form = document.createElement('form');
-//   form.dataset.action = submitHref;
-
-//   const fields = await Promise.all(json.data.map((fd) => createField(fd, form)));
-//   fields.forEach((field) => {
-//     if (field) {
-//       form.append(field);
-//     }
-//   });
-
-//   // group fields into fieldsets
-//   const fieldsets = form.querySelectorAll('fieldset');
-//   fieldsets.forEach((fieldset) => {
-//     form.querySelectorAll(`[data-fieldset="${fieldset.name}"`).forEach((field) => {
-//       fieldset.append(field);
-//     });
-//   });
-
-//   return form;
-// }
-
-// function generatePayload(form) {
-//   const payload = {};
-
-//   [...form.elements].forEach((field) => {
-//     if (field.name && field.type !== 'submit' && !field.disabled) {
-//       if (field.type === 'radio') {
-//         if (field.checked) payload[field.name] = field.value;
-//       } else if (field.type === 'checkbox') {
-//         if (field.checked) payload[field.name]
-// = payload[field.name] ? `${payload[field.name]},${field.value}` : field.value;
-//       } else {
-//         payload[field.name] = field.value;
-//       }
-//     }
-//   });
-//   return payload;
-// }
-
-// async function handleSubmit(form) {
-//   if (form.getAttribute('data-submitting') === 'true') return;
-
-//   const submit = form.querySelector('button[type="submit"]');
 //   try {
-//     form.setAttribute('data-submitting', 'true');
-//     submit.disabled = true;
+//     const state = JSON.parse(savedState);
+//     const checkboxes = checklist.querySelectorAll('input[type="checkbox"]');
 
-//     // create payload
-//     const payload = generatePayload(form);
-//     // console.log(payload);
-//     localStorage.setItem('formData', JSON.stringify(payload));
-//     // if (form.dataset.confirmation) {
-//     window.location.href = '/nextpage';
-//     // }
-//     // const response = await fetch(form.dataset.action, {
-//     //   method: 'POST',
-//     //   body: JSON.stringify({ data: payload }),
-//     //   headers: {
-//     //     'Content-Type': 'application/json',
-//     //   },
-//     // });
-//     // if (response.ok) {
-//     //   if (form.dataset.confirmation) {
-//     //     window.location.href = form.dataset.confirmation;
-//     //   }
-//     // } else {
-//     //   const error = await response.text();
-//     //   throw new Error(error);
-//     // }
+//     checkboxes.forEach((checkbox) => {
+//       if (state[checkbox.id] !== undefined) {
+//         checkbox.checked = state[checkbox.id];
+//       }
+//     });
+
+//     // Update progress without triggering modal on load
+//     updateProgressSilent(checklist);
 //   } catch (e) {
-//     // eslint-disable-next-line no-console
-//     console.error(e);
-//   } finally {
-//     form.setAttribute('data-submitting', 'false');
-//     submit.disabled = false;
+//     console.warn('Failed to load checklist state:', e);
 //   }
 // }
 
-// export default async function decorate(block) {
-//   const links = [...block.querySelectorAll('a')].map((a) => a.href);
-//   const formLink = links.find((link) =>
-// link.startsWith(window.location.origin) && link.endsWith('.json'));
-//   const submitLink = links.find((link) => link !== formLink);
-//   if (!formLink || !submitLink) return;
-
-//   const form = await createForm(formLink, submitLink);
-//   block.replaceChildren(form);
-
-//   form.addEventListener('submit', (e) => {
-//     e.preventDefault();
-//     const valid = form.checkValidity();
-//     if (valid) {
-//       handleSubmit(form);
-//     } else {
-//       const firstInvalidEl = form.querySelector(':invalid:not(fieldset)');
-//       if (firstInvalidEl) {
-//         firstInvalidEl.focus();
-//         firstInvalidEl.scrollIntoView({ behavior: 'smooth' });
-//       }
-//     }
-//   });
+// function updateProgressSilent(checklist) {
+//   // Just update progress without modal
+//   updateProgress(checklist, { silent: true });
 // }
+
+async function createChecklist(checklistHref) {
+  const { pathname } = new URL(checklistHref);
+  const resp = await fetch(pathname);
+  const json = await resp.json();
+
+  const checklistContainer = document.createElement('div');
+  checklistContainer.classList.add('checklist-container');
+
+  // Create progress tracker
+  const progressTracker = createProgressTracker();
+  checklistContainer.append(progressTracker);
+
+  // Create checklist wrapper
+  const checklistWrapper = document.createElement('div');
+  checklistWrapper.classList.add('checklist-wrapper');
+
+  // Create fields
+  const fields = await Promise.all(
+    json.data.map((fd) => createChecklistField(fd, checklistContainer)),
+  );
+
+  fields.forEach((field) => {
+    if (field) {
+      checklistWrapper.append(field);
+    }
+  });
+
+  checklistContainer.append(checklistWrapper);
+
+  // Group fields into fieldsets if any
+  const fieldsets = checklistContainer.querySelectorAll('fieldset');
+  fieldsets.forEach((fieldset) => {
+    checklistContainer.querySelectorAll(`[data-fieldset="${fieldset.name}"]`).forEach((field) => {
+      fieldset.append(field);
+    });
+  });
+
+  // Initialize progress
+  setTimeout(() => updateProgress(checklistContainer), 0);
+
+  return checklistContainer;
+}
+
+export default async function decorate(block) {
+  const links = [...block.querySelectorAll('a')].map((a) => a.href);
+  const checklistLink = links.find((link) => link.startsWith(window.location.origin) && link.endsWith('.json'));
+
+  if (!checklistLink) {
+    // console.warn('No checklist JSON link found');
+    return;
+  }
+
+  try {
+    const checklist = await createChecklist(checklistLink);
+    block.replaceChildren(checklist);
+  } catch (error) {
+    // console.error('Failed to create checklist:', error);
+    block.innerHTML = '<p class="error">Failed to load checklist. Please try again later.</p>';
+  }
+}

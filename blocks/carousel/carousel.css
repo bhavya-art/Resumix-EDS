@@ -82,7 +82,7 @@
   padding: 32px;
   color: var(--background-color);
   background: linear-gradient(135deg, 
-    rgb(104 112 190 / 90%) 0%, 
+    rgb(144 150 206 / 90%) 0%, 
     rgb(78 82 125 / 85%) 100%);
   position: relative;
   width: var(--slide-content-width, auto);
@@ -178,7 +178,7 @@
   margin: 0;
   border-radius: 50%;
   padding: 0;
-  background:rgb(129 129 204);
+  background:rgb(144 150 206);
   transition: all 0.3s ease;
   border: 2px solid rgb(255 255 255 / 30%);
   cursor: pointer;

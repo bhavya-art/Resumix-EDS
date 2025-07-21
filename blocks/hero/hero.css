@@ -136,8 +136,9 @@
   .hero h1,
   .hero p {
     text-align: center;
-    padding-left: 5%;
-    padding-right: 5%;
+
+    /* padding-left: 5%;
+    padding-right: 5%; */
      z-index: 1;
   }
   
